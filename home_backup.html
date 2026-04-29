@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Smart Greenhouse Monitoring System - Real-time IoT dashboard">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <title>Home | Smart Greenhouse Monitoring</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Particle Background Canvas -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Enhanced Background Animation -->
+    <div class="background-animation">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="blob blob-4"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo-section">
+                    <div class="logo-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 5L35 12.5V27.5L20 35L5 27.5V12.5L20 5Z" stroke="url(#gradient1)"
+                                stroke-width="2" fill="url(#gradient2)" />
+                            <circle cx="20" cy="20" r="5" fill="url(#gradient3)" />
+                            <defs>
+                                <linearGradient id="gradient1" x1="5" y1="5" x2="35" y2="35">
+                                    <stop offset="0%" stop-color="#10b981" />
+                                    <stop offset="100%" stop-color="#3b82f6" />
+                                </linearGradient>
+                                <linearGradient id="gradient2" x1="5" y1="5" x2="35" y2="35">
+                                    <stop offset="0%" stop-color="#10b98120" />
+                                    <stop offset="100%" stop-color="#3b82f620" />
+                                </linearGradient>
+                                <linearGradient id="gradient3" x1="15" y1="15" x2="25" y2="25">
+                                    <stop offset="0%" stop-color="#34d399" />
+                                    <stop offset="100%" stop-color="#60a5fa" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Smart Greenhouse</h1>
+                        <p>IoT Monitoring System</p>
+                    </div>
+                </div>
+                <div class="nav-links">
+                    <a href="home.html" class="nav-link active">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z"
+                                stroke="currentColor" stroke-width="2" />
+                        </svg>
+                        Home
+                    </a>
+                    <a href="temperature.html" class="nav-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M12 17C13.6569 17 15 15.6569 15 14C15 12.3431 13.6569 11 12 11C10.3431 11 9 12.3431 9 14C9 15.6569 10.3431 17 12 17Z"
+                                stroke="currentColor" stroke-width="2" />
+                            <path d="M12 11V5M10 5H14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                        Temperature
+                    </a>
+                    <a href="humidity.html" class="nav-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M12 2.69L17.66 8.35C20.78 11.47 20.78 16.53 17.66 19.65C14.54 22.77 9.46 22.77 6.34 19.65C3.22 16.53 3.22 11.47 6.34 8.35L12 2.69Z"
+                                stroke="currentColor" stroke-width="2" />
+                        </svg>
+                        Humidity
+                    </a>
+                    <a href="soil.html" class="nav-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M12 2V10M12 22V14M12 10C10.9 10 10 10.9 10 12C10 14 12 14 12 14M12 10C13.1 10 14 10.9 14 12C14 14 12 14 12 14"
+                                stroke="currentColor" stroke-width="2" />
+                            <path d="M6 14H18M6 18H18M6 22H18" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                        Soil
+                    </a>
+                    <a href="light.html" class="nav-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2" />
+                            <path
+                                d="M12 2V4M12 20V22M22 12H20M4 12H2M19.07 4.93L17.66 6.34M6.34 17.66L4.93 19.07M19.07 19.07L17.66 17.66M6.34 6.34L4.93 4.93"
+                                stroke="currentColor" stroke-width="2" />
+                        </svg>
+                        Light
+                    </a>
+                    <a href="prediction.html" class="nav-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        Predictions
+                    </a>
+                </div>
+                <div class="status-indicator-nav">
+                    <div class="status-dot" id="connectionStatus"></div>
+                    <span id="statusText">Connecting...</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="gradient-text">Welcome to Your</span><br>
+                    Smart Greenhouse Dashboard
+                </h1>
+                <p class="hero-subtitle">🌱 Real-time monitoring and control of your greenhouse environment</p>
+                <div class="hero-stats">
+                    <div class="hero-stat-item">
+                        <div class="hero-stat-icon temperature-gradient">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                                <path
+                                    d="M12 17C13.6569 17 15 15.6569 15 14C15 12.3431 13.6569 11 12 11C10.3431 11 9 12.3431 9 14C9 15.6569 10.3431 17 12 17Z"
+                                    stroke="white" stroke-width="2" />
+                                <path d="M12 11V5M10 5H14" stroke="white" stroke-width="2" stroke-linecap="round" />
+                            </svg>
+                        </div>
+                        <div class="hero-stat-content">
+                            <span class="hero-stat-value" id="heroTemp">--</span>
+                            <span class="hero-stat-label">Temperature</span>
+                        </div>
+                    </div>
+                    <div class="hero-stat-item">
+                        <div class="hero-stat-icon humidity-gradient">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                                <path
+                                    d="M12 2.69L17.66 8.35C20.78 11.47 20.78 16.53 17.66 19.65C14.54 22.77 9.46 22.77 6.34 19.65C3.22 16.53 3.22 11.47 6.34 8.35L12 2.69Z"
+                                    stroke="white" stroke-width="2" />
+                            </svg>
+                        </div>
+                        <div class="hero-stat-content">
+                            <span class="hero-stat-value" id="heroHumidity">--</span>
+                            <span class="hero-stat-label">Humidity</span>
+                        </div>
+                    </div>
+                    <div class="hero-stat-item">
+                        <div class="hero-stat-icon soil-gradient">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2V10M12 22V14M12 10C10.9 10 10 10.9 10 12C10 14 12 14 12 14" stroke="white"
+                                    stroke-width="2" />
+                                <path d="M6 14H18M6 18H18" stroke="white" stroke-width="2" />
+                            </svg>
+                        </div>
+                        <div class="hero-stat-content">
+                            <span class="hero-stat-value" id="heroSoil">--</span>
+                            <span class="hero-stat-label">Soil Moisture</span>
+                        </div>
+                    </div>
+                    <div class="hero-stat-item">
+                        <div class="hero-stat-icon light-gradient">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="4" stroke="white" stroke-width="2" />
+                                <path d="M12 2V4M12 20V22M22 12H20M4 12H2" stroke="white" stroke-width="2" />
+                            </svg>
+                        </div>
+                        <div class="hero-stat-content">
+                            <span class="hero-stat-value" id="heroLight">--</span>
+                            <span class="hero-stat-label">Light Intensity</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Sensor Overview Cards -->
+            <section class="sensor-overview">
+                <h2 class="section-title">📊 Sensor Overview</h2>
+                <div class="sensor-grid-home">
+                    <a href="temperature.html" class="sensor-card-home temperature-card">
+                        <div class="card-glow temperature-glow"></div>
+                        <div class="sensor-icon-large">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
+                                <path
+                                    d="M12 17C13.6569 17 15 15.6569 15 14C15 12.3431 13.6569 11 12 11C10.3431 11 9 12.3431 9 14C9 15.6569 10.3431 17 12 17Z"
+                                    stroke="currentColor" stroke-width="2" />
+                                <path d="M12 11V5M10 5H14M12 5V3" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </div>
+                        <h3>Temperature</h3>
+                        <div class="sensor-value-home">
+                            <span class="value" id="tempValue">--</span>
+                            <span class="unit">°C</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill temperature-fill" id="tempProgress"></div>
+                        </div>
+                        <p class="sensor-status-text">Optimal: 15-35°C</p>
+                        <div class="card-arrow">→</div>
+                    </a>
+
+                    <a href="humidity.html" class="sensor-card-home humidity-card">
+                        <div class="card-glow humidity-glow"></div>
+                        <div class="sensor-icon-large">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
+                                <path
+                                    d="M12 2.69L17.66 8.35C20.78 11.47 20.78 16.53 17.66 19.65C14.54 22.77 9.46 22.77 6.34 19.65C3.22 16.53 3.22 11.47 6.34 8.35L12 2.69Z"
+                                    stroke="currentColor" stroke-width="2" />
+                            </svg>
+                        </div>
+                        <h3>Humidity</h3>
+                        <div class="sensor-value-home">
+                            <span class="value" id="humidityValue">--</span>
+                            <span class="unit">%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill humidity-fill" id="humidityProgress"></div>
+                        </div>
+                        <p class="sensor-status-text">Optimal: 40-80%</p>
+                        <div class="card-arrow">→</div>
+                    </a>
+
+                    <a href="soil.html" class="sensor-card-home soil-card">
+                        <div class="card-glow soil-glow"></div>
+                        <div class="sensor-icon-large">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
+                                <path
+                                    d="M12 2V10M12 22V14M12 10C10.9 10 10 10.9 10 12C10 14 12 14 12 14M12 10C13.1 10 14 10.9 14 12C14 14 12 14 12 14"
+                                    stroke="currentColor" stroke-width="2" />
+                                <path d="M6 14H18M6 18H18M6 22H18" stroke="currentColor" stroke-width="2" />
+                            </svg>
+                        </div>
+                        <h3>Soil Moisture</h3>
+                        <div class="sensor-value-home">
+                            <span class="value" id="soilValue">--</span>
+                            <span class="unit">%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill soil-fill" id="soilProgress"></div>
+                        </div>
+                        <p class="sensor-status-text">Optimal: 30-70%</p>
+                        <div class="card-arrow">→</div>
+                    </a>
+
+                    <a href="light.html" class="sensor-card-home light-card">
+                        <div class="card-glow light-glow"></div>
+                        <div class="sensor-icon-large">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2" />
+                                <path
+                                    d="M12 2V4M12 20V22M22 12H20M4 12H2M19.07 4.93L17.66 6.34M6.34 17.66L4.93 19.07M19.07 19.07L17.66 17.66M6.34 6.34L4.93 4.93"
+                                    stroke="currentColor" stroke-width="2" />
+                            </svg>
+                        </div>
+                        <h3>Light Intensity</h3>
+                        <div class="sensor-value-home">
+                            <span class="value" id="lightValue">--</span>
+                            <span class="unit">%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill light-fill" id="lightProgress"></div>
+                        </div>
+                        <p class="sensor-status-text">Optimal: 20-100%</p>
+                        <div class="card-arrow">→</div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- System Status Dashboard -->
+            <section class="system-status">
+                <h2 class="section-title">⚙️ System Status</h2>
+                <div class="status-grid">
+                    <div class="status-card">
+                        <div class="status-icon-wrapper online">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path
+                                    d="M22 12C22 6.48 17.52 2 12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12Z"
+                                    stroke="currentColor" stroke-width="2" />
+                                <path d="M8 12L11 15L16 9" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </div>
+                        <div class="status-content">
+                            <h4>Connection Status</h4>
+                            <p id="systemStatus">Connected</p>
+                        </div>
+                    </div>
+                    <div class="status-card">
+                        <div class="status-icon-wrapper">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path
+                                    d="M12 2V6M12 18V22M4.93 4.93L7.76 7.76M16.24 16.24L19.07 19.07M2 12H6M18 12H22M4.93 19.07L7.76 16.24M16.24 7.76L19.07 4.93"
+                                    stroke="currentColor" stroke-width="2" />
+                            </svg>
+                        </div>
+                        <div class="status-content">
+                            <h4>Last Updated</h4>
+                            <p id="lastUpdateTime">--:--:--</p>
+                        </div>
+                    </div>
+                    <div class="status-card">
+                        <div class="status-icon-wrapper">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path
+                                    d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
+                                    stroke="currentColor" stroke-width="2" />
+                            </svg>
+                        </div>
+                        <div class="status-content">
+                            <h4>Data Points</h4>
+                            <p id="dataPoints">0 readings</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>© 2024 Smart Greenhouse Monitoring System</p>
+                    <p>Acropolis Institute of Technology and Research</p>
+                </div>
+                <div class="footer-team">
+                    <p><strong>Team:</strong> Adarsh Patel, Atharva Rathore, Gourav Mahajan, Kunal Sonare</p>
+                    <p><strong>Guide:</strong> Prof. Mahendra Verma</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="home.js"></script>
+</body>
+
+</html>

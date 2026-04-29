@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="0; url=home.html">
+    <title>Redirecting...</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: hsl(220, 26%, 7%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .redirect-message {
+            text-align: center;
+        }
+
+        h1 {
+            background: linear-gradient(135deg, hsl(160, 84%, 39%), hsl(217, 91%, 60%));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: hsl(160, 84%, 39%);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="redirect-message">
+        <h1>🌱 Smart Greenhouse Dashboard</h1>
+        <p>Redirecting to dashboard...</p>
+        <p>If you're not redirected, <a href="home.html">click here</a>.</p>
+    </div>
+    <script>
+        // Immediate redirect in case meta refresh doesn't work
+        window.location.href = 'home.html';
+    </script>
+</body>
+
+</html>

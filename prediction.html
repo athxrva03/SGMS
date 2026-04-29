@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI Predictions - Smart Greenhouse System">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <title>AI Predictions | Smart Greenhouse</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+
+<body>
+    <!-- Background Animation -->
+    <div class="background-animation">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="blob blob-4"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo-section">
+                    <div class="logo-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 5L35 12.5V27.5L20 35L5 27.5V12.5L20 5Z" stroke="url(#gradient1)"
+                                stroke-width="2" fill="url(#gradient2)" />
+                            <circle cx="20" cy="20" r="5" fill="url(#gradient3)" />
+                            <defs>
+                                <linearGradient id="gradient1" x1="5" y1="5" x2="35" y2="35">
+                                    <stop offset="0%" stop-color="#10b981" />
+                                    <stop offset="100%" stop-color="#3b82f6" />
+                                </linearGradient>
+                                <linearGradient id="gradient2" x1="5" y1="5" x2="35" y2="35">
+                                    <stop offset="0%" stop-color="#10b98120" />
+                                    <stop offset="100%" stop-color="#3b82f620" />
+                                </linearGradient>
+                                <linearGradient id="gradient3" x1="15" y1="15" x2="25" y2="25">
+                                    <stop offset="0%" stop-color="#34d399" />
+                                    <stop offset="100%" stop-color="#60a5fa" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Smart Greenhouse</h1>
+                        <p>IoT Monitoring System</p>
+                    </div>
+                </div>
+                <div class="nav-links">
+                    <a href="home.html" class="nav-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z"
+                                stroke="currentColor" stroke-width="2" />
+                        </svg>
+                        Home
+                    </a>
+                    <a href="temperature.html" class="nav-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M12 17C13.6569 17 15 15.6569 15 14C15 12.3431 13.6569 11 12 11C10.3431 11 9 12.3431 9 14C9 15.6569 10.3431 17 12 17Z"
+                                stroke="currentColor" stroke-width="2" />
+                            <path d="M12 11V5M10 5H14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                        Temperature
+                    </a>
+                    <a href="humidity.html" class="nav-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M12 2.69L17.66 8.35C20.78 11.47 20.78 16.53 17.66 19.65C14.54 22.77 9.46 22.77 6.34 19.65C3.22 16.53 3.22 11.47 6.34 8.35L12 2.69Z"
+                                stroke="currentColor" stroke-width="2" />
+                        </svg>
+                        Humidity
+                    </a>
+                    <a href="soil.html" class="nav-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M12 2V10M12 22V14M12 10C10.9 10 10 10.9 10 12C10 14 12 14 12 14M12 10C13.1 10 14 10.9 14 12C14 14 12 14 12 14"
+                                stroke="currentColor" stroke-width="2" />
+                            <path d="M6 14H18M6 18H18M6 22H18" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                        Soil
+                    </a>
+
+                    <a href="prediction.html" class="nav-link active">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        Predictions
+                    </a>
+
+                    <div class="nav-category">Analytics</div>
+                    <a href="water-analysis.html" class="nav-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                        Water Intake
+                    </a>
+                    <a href="stress-analysis.html" class="nav-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07L19.07 4.93" stroke="currentColor"
+                                stroke-width="2" />
+                        </svg>
+                        Env. Stress
+                    </a>
+                </div>
+                <div class="status-indicator-nav">
+                    <div class="status-dot" id="connectionStatus"></div>
+                    <span id="statusText">Connecting...</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header prediction-header">
+        <div class="container">
+            <div class="page-header-content">
+                <div class="page-icon prediction-gradient">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                        <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="white" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="page-title">AI-Powered Predictions</h1>
+                    <p class="page-subtitle">Forecasting future sensor values using historical data analysis</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Prediction Overview -->
+            <section class="prediction-overview">
+                <h2 class="section-title">📊 Next Hour Forecast</h2>
+                <div class="prediction-cards-grid">
+                    <div class="prediction-card temperature-theme">
+                        <div class="prediction-icon">🌡️</div>
+                        <h3>Temperature</h3>
+                        <div class="prediction-value">
+                            <span class="predicted-val" id="predTemp">--</span>
+                            <span class="unit">°C</span>
+                        </div>
+                        <div class="prediction-trend" id="tempTrend">
+                            <span class="trend-icon">→</span>
+                            <span class="trend-text">Analyzing...</span>
+                        </div>
+                        <div class="confidence-bar">
+                            <div class="confidence-label">Confidence</div>
+                            <div class="confidence-meter">
+                                <div class="confidence-fill" id="tempConfidence"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="prediction-card humidity-theme">
+                        <div class="prediction-icon">💧</div>
+                        <h3>Humidity</h3>
+                        <div class="prediction-value">
+                            <span class="predicted-val" id="predHumidity">--</span>
+                            <span class="unit">%</span>
+                        </div>
+                        <div class="prediction-trend" id="humidityTrend">
+                            <span class="trend-icon">→</span>
+                            <span class="trend-text">Analyzing...</span>
+                        </div>
+                        <div class="confidence-bar">
+                            <div class="confidence-label">Confidence</div>
+                            <div class="confidence-meter">
+                                <div class="confidence-fill" id="humidityConfidence"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="prediction-card soil-theme">
+                        <div class="prediction-icon">🌱</div>
+                        <h3>Soil Moisture</h3>
+                        <div class="prediction-value">
+                            <span class="predicted-val" id="predSoil">--</span>
+                            <span class="unit">%</span>
+                        </div>
+                        <div class="prediction-trend" id="soilTrend">
+                            <span class="trend-icon">→</span>
+                            <span class="trend-text">Analyzing...</span>
+                        </div>
+                        <div class="confidence-bar">
+                            <div class="confidence-label">Confidence</div>
+                            <div class="confidence-meter">
+                                <div class="confidence-fill" id="soilConfidence"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="prediction-card light-theme">
+                        <div class="prediction-icon">☀️</div>
+                        <h3>Light Intensity</h3>
+                        <div class="prediction-value">
+                            <span class="predicted-val" id="predLight">--</span>
+                            <span class="unit">%</span>
+                        </div>
+                        <div class="prediction-trend" id="lightTrend">
+                            <span class="trend-icon">→</span>
+                            <span class="trend-text">Analyzing...</span>
+                        </div>
+                        <div class="confidence-bar">
+                            <div class="confidence-label">Confidence</div>
+                            <div class="confidence-meter">
+                                <div class="confidence-fill" id="lightConfidence"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Prediction Charts -->
+            <section class="prediction-charts">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h2>🌡️ Temperature Forecast</h2>
+                        <div class="chart-info">
+                            <span class="actual-legend">● Actual</span>
+                            <span class="predicted-legend">● Predicted</span>
+                        </div>
+                    </div>
+                    <div class="chart-wrapper-detail">
+                        <canvas id="tempPredChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h2>💧 Humidity Forecast</h2>
+                        <div class="chart-info">
+                            <span class="actual-legend">● Actual</span>
+                            <span class="predicted-legend">● Predicted</span>
+                        </div>
+                    </div>
+                    <div class="chart-wrapper-detail">
+                        <canvas id="humidityPredChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h2>🌱 Soil Moisture Forecast</h2>
+                        <div class="chart-info">
+                            <span class="actual-legend">● Actual</span>
+                            <span class="predicted-legend">● Predicted</span>
+                        </div>
+                    </div>
+                    <div class="chart-wrapper-detail">
+                        <canvas id="soilPredChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h2>☀️ Light Intensity Forecast</h2>
+                        <div class="chart-info">
+                            <span class="actual-legend">● Actual</span>
+                            <span class="predicted-legend">● Predicted</span>
+                        </div>
+                    </div>
+                    <div class="chart-wrapper-detail">
+                        <canvas id="lightPredChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Alerts -->
+            <section class="prediction-alerts">
+                <h2 class="section-title">⚠️ Predicted Alerts</h2>
+                <div class="alerts-container" id="alertsContainer">
+                    <div class="alert-placeholder">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" />
+                            <path d="M12 8V12M12 16H12.01" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" />
+                        </svg>
+                        <p>Analyzing data for potential issues...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Model Info -->
+            <section class="model-info">
+                <h2 class="section-title">🤖 Prediction Model</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Algorithm</h3>
+                        <p>Linear Regression with Moving Average</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Data Points</h3>
+                        <p id="dataPointsUsed">100 historical readings</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Forecast Window</h3>
+                        <p>Next 1-6 hours</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Update Frequency</h3>
+                        <p>Every data refresh</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>© 2024 Smart Greenhouse Monitoring System</p>
+                    <p>Acropolis Institute of Technology and Research</p>
+                </div>
+                <div class="footer-team">
+                    <p><strong>Team:</strong> Adarsh Patel, Atharva Rathore, Gourav Mahajan, Kunal Sonare</p>
+                    <p><strong>Guide:</strong> Prof. Mahendra Verma</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="prediction.js"></script>
+</body>
+
+</html>

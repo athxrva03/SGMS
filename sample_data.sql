@@ -1,0 +1,35 @@
+-- Sample Data for Smart Greenhouse Monitoring System
+-- This will insert realistic sensor readings for testing
+
+USE stockvision;
+
+-- Insert sample readings with timestamps over the past few hours
+INSERT INTO sensor_readings (temperature, humidity, soil_moisture, light_intensity, created_at) VALUES
+(22.5, 65.2, 45.8, 320.5, DATE_SUB(NOW(), INTERVAL 120 MINUTE)),
+(23.1, 64.8, 46.2, 325.3, DATE_SUB(NOW(), INTERVAL 115 MINUTE)),
+(22.8, 66.1, 45.5, 318.7, DATE_SUB(NOW(), INTERVAL 110 MINUTE)),
+(24.2, 63.5, 47.1, 330.2, DATE_SUB(NOW(), INTERVAL 105 MINUTE)),
+(23.5, 65.0, 46.8, 322.9, DATE_SUB(NOW(), INTERVAL 100 MINUTE)),
+(23.8, 64.3, 46.0, 328.1, DATE_SUB(NOW(), INTERVAL 95 MINUTE)),
+(24.5, 62.8, 47.5, 335.4, DATE_SUB(NOW(), INTERVAL 90 MINUTE)),
+(24.1, 63.1, 47.2, 332.6, DATE_SUB(NOW(), INTERVAL 85 MINUTE)),
+(23.9, 64.5, 46.9, 329.8, DATE_SUB(NOW(), INTERVAL 80 MINUTE)),
+(23.3, 65.8, 46.3, 324.2, DATE_SUB(NOW(), INTERVAL 75 MINUTE)),
+(22.9, 66.5, 45.7, 319.5, DATE_SUB(NOW(), INTERVAL 70 MINUTE)),
+(23.6, 64.9, 46.5, 326.7, DATE_SUB(NOW(), INTERVAL 65 MINUTE)),
+(24.3, 63.2, 47.8, 333.9, DATE_SUB(NOW(), INTERVAL 60 MINUTE)),
+(24.8, 62.1, 48.2, 338.4, DATE_SUB(NOW(), INTERVAL 55 MINUTE)),
+(25.1, 61.5, 48.6, 341.2, DATE_SUB(NOW(), INTERVAL 50 MINUTE)),
+(25.4, 60.8, 49.1, 345.7, DATE_SUB(NOW(), INTERVAL 45 MINUTE)),
+(25.0, 61.2, 48.8, 343.1, DATE_SUB(NOW(), INTERVAL 40 MINUTE)),
+(24.6, 62.4, 48.3, 336.5, DATE_SUB(NOW(), INTERVAL 35 MINUTE)),
+(24.2, 63.6, 47.6, 331.8, DATE_SUB(NOW(), INTERVAL 30 MINUTE)),
+(23.7, 64.7, 46.9, 327.3, DATE_SUB(NOW(), INTERVAL 25 MINUTE)),
+(23.4, 65.3, 46.4, 323.6, DATE_SUB(NOW(), INTERVAL 20 MINUTE)),
+(23.0, 66.0, 45.9, 320.1, DATE_SUB(NOW(), INTERVAL 15 MINUTE)),
+(22.8, 66.4, 45.6, 318.4, DATE_SUB(NOW(), INTERVAL 10 MINUTE)),
+(22.6, 66.8, 45.3, 316.9, DATE_SUB(NOW(), INTERVAL 5 MINUTE)),
+(22.5, 67.1, 45.1, 315.2, NOW());
+
+SELECT 'Sample data inserted successfully!' as Status;
+SELECT COUNT(*) as 'Total Records' FROM sensor_readings;

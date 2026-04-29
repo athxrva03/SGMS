@@ -1,0 +1,324 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Humidity Monitoring - Smart Greenhouse System">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <title>Humidity | Smart Greenhouse</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+
+<body>
+    <!-- Background Animation -->
+    <div class="background-animation">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="blob blob-4"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo-section">
+                    <div class="logo-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 5L35 12.5V27.5L20 35L5 27.5V12.5L20 5Z" stroke="url(#gradient1)"
+                                stroke-width="2" fill="url(#gradient2)" />
+                            <circle cx="20" cy="20" r="5" fill="url(#gradient3)" />
+                            <defs>
+                                <linearGradient id="gradient1" x1="5" y1="5" x2="35" y2="35">
+                                    <stop offset="0%" stop-color="#10b981" />
+                                    <stop offset="100%" stop-color="#3b82f6" />
+                                </linearGradient>
+                                <linearGradient id="gradient2" x1="5" y1="5" x2="35" y2="35">
+                                    <stop offset="0%" stop-color="#10b98120" />
+                                    <stop offset="100%" stop-color="#3b82f620" />
+                                </linearGradient>
+                                <linearGradient id="gradient3" x1="15" y1="15" x2="25" y2="25">
+                                    <stop offset="0%" stop-color="#34d399" />
+                                    <stop offset="100%" stop-color="#60a5fa" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Smart Greenhouse</h1>
+                        <p>IoT Monitoring System</p>
+                    </div>
+                </div>
+                <div class="nav-links">
+                    <a href="home.html" class="nav-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z"
+                                stroke="currentColor" stroke-width="2" />
+                        </svg>
+                        Home
+                    </a>
+                    <a href="temperature.html" class="nav-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M12 17C13.6569 17 15 15.6569 15 14C15 12.3431 13.6569 11 12 11C10.3431 11 9 12.3431 9 14C9 15.6569 10.3431 17 12 17Z"
+                                stroke="currentColor" stroke-width="2" />
+                            <path d="M12 11V5M10 5H14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                        Temperature
+                    </a>
+                    <a href="humidity.html" class="nav-link active">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M12 2.69L17.66 8.35C20.78 11.47 20.78 16.53 17.66 19.65C14.54 22.77 9.46 22.77 6.34 19.65C3.22 16.53 3.22 11.47 6.34 8.35L12 2.69Z"
+                                stroke="currentColor" stroke-width="2" />
+                        </svg>
+                        Humidity
+                    </a>
+                    <a href="soil.html" class="nav-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M12 2V10M12 22V14M12 10C10.9 10 10 10.9 10 12C10 14 12 14 12 14M12 10C13.1 10 14 10.9 14 12C14 14 12 14 12 14"
+                                stroke="currentColor" stroke-width="2" />
+                            <path d="M6 14H18M6 18H18M6 22H18" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                        Soil
+                    </a>
+
+                    <a href="prediction.html" class="nav-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        Predictions
+                    </a>
+
+                    <div class="nav-category">Analytics</div>
+                    <a href="water-analysis.html" class="nav-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                        Water Intake
+                    </a>
+                    <a href="stress-analysis.html" class="nav-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07L19.07 4.93" stroke="currentColor"
+                                stroke-width="2" />
+                        </svg>
+                        Env. Stress
+                    </a>
+                </div>
+                <div class="status-indicator-nav">
+                    <div class="status-dot" id="connectionStatus"></div>
+                    <span id="statusText">Connecting...</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header humidity-header">
+        <div class="container">
+            <div class="page-header-content">
+                <div class="page-icon humidity-gradient">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M12 2.69L17.66 8.35C20.78 11.47 20.78 16.53 17.66 19.65C14.54 22.77 9.46 22.77 6.34 19.65C3.22 16.53 3.22 11.47 6.34 8.35L12 2.69Z"
+                            stroke="white" stroke-width="2" />
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="page-title">Humidity Monitoring</h1>
+                    <p class="page-subtitle">Real-time humidity tracking and analysis</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Current Reading -->
+            <section class="current-reading-section">
+                <div class="current-reading-card humidity-theme">
+                    <div class="reading-glow humidity-glow"></div>
+                    <h2>Current Humidity</h2>
+                    <div class="current-value-display">
+                        <span class="mega-value" id="tempValue">--</span>
+                        <span class="mega-unit">%</span>
+                    </div>
+                    <div class="circular-progress">
+                        <svg width="200" height="200" viewBox="0 0 200 200">
+                            <circle cx="100" cy="100" r="90" fill="none" stroke="rgba(59, 130, 246, 0.1)"
+                                stroke-width="12" />
+                            <circle id="tempCircle" cx="100" cy="100" r="90" fill="none" stroke="url(#humidGradient)"
+                                stroke-width="12" stroke-dasharray="565.48" stroke-dashoffset="565.48"
+                                stroke-linecap="round" transform="rotate(-90 100 100)" />
+                            <defs>
+                                <linearGradient id="humidGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#3b82f6" />
+                                    <stop offset="100%" stop-color="#06b6d4" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <div class="progress-center-text">
+                            <span id="tempPercentage">0%</span>
+                            <small>of range</small>
+                        </div>
+                    </div>
+                    <div class="status-indicator-large">
+                        <div class="status-dot-large" id="tempStatusDot"></div>
+                        <span id="tempStatusText">Waiting for data...</span>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid-detail">
+                    <div class="stat-card-detail">
+                        <div class="stat-icon">&#x1F4C8;</div> <!-- Chart Increasing -->
+                        <div class="stat-content">
+                            <span class="stat-label">Maximum</span>
+                            <span class="stat-value" id="maxTemp">-- %</span>
+                        </div>
+                    </div>
+                    <div class="stat-card-detail">
+                        <div class="stat-icon">&#x1F4C9;</div> <!-- Chart Decreasing -->
+                        <div class="stat-content">
+                            <span class="stat-label">Minimum</span>
+                            <span class="stat-value" id="minTemp">-- %</span>
+                        </div>
+                    </div>
+                    <div class="stat-card-detail">
+                        <div class="stat-icon">&#x1F4CA;</div> <!-- Bar Chart -->
+                        <div class="stat-content">
+                            <span class="stat-label">Average</span>
+                            <span class="stat-value" id="avgTemp">-- %</span>
+                        </div>
+                    </div>
+                    <div class="stat-card-detail">
+                        <div class="stat-icon">&#x1F3AF;</div> <!-- Direct Hit -->
+                        <div class="stat-content">
+                            <span class="stat-label">Target Range</span>
+                            <span class="stat-value">40-80 %</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chart Section -->
+            <section class="detail-chart-section">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h2>Humidity Trends</h2>
+                        <div class="chart-controls">
+                            <button class="chart-btn active" data-range="20">20 pts</button>
+                            <button class="chart-btn" data-range="50">50 pts</button>
+                            <button class="chart-btn" data-range="100">100 pts</button>
+                        </div>
+                    </div>
+                    <div class="chart-wrapper-detail">
+                        <canvas id="tempChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Automation Thresholds -->
+            <section class="automation-section">
+                <h2 class="section-title">&#x2699;&#xFE0F; Automation Thresholds</h2> <!-- Gear -->
+                <div class="threshold-display-grid">
+                    <div class="threshold-card">
+                        <div class="threshold-icon">&#x1F53B;</div> <!-- Down Triangle -->
+                        <div class="threshold-info">
+                            <h3>Minimum Threshold</h3>
+                            <div class="threshold-value-large">40%</div>
+                            <div class="threshold-action">
+                                <span class="action-badge mist">&#x1F4A7; Misting System ON</span> <!-- Droplet -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="threshold-card">
+                        <div class="threshold-icon">&#x1F53A;</div> <!-- Up Triangle -->
+                        <div class="threshold-info">
+                            <h3>Maximum Threshold</h3>
+                            <div class="threshold-value-large">80%</div>
+                            <div class="threshold-action">
+                                <span class="action-badge vent">&#x1F32C;&#xFE0F; Ventilation ON</span> <!-- Wind -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recommendations -->
+            <section class="recommendations-section">
+                <h2 class="section-title">Recommendations</h2>
+                <div class="recommendations-grid">
+                    <div class="recommendation-card">
+                        <div class="recommendation-icon dry">&#x1F335;</div> <!-- Cactus -->
+                        <h3>Too Dry (&lt; 40%)</h3>
+                        <ul>
+                            <li>Activate misting system</li>
+                            <li>Water plants more frequently</li>
+                            <li>Reduce ventilation</li>
+                        </ul>
+                    </div>
+                    <div class="recommendation-card">
+                        <div class="recommendation-icon optimal">&#x2705;</div> <!-- Check Mark -->
+                        <h3>Optimal (40-80%)</h3>
+                        <ul>
+                            <li>Maintain current settings</li>
+                            <li>Monitor regularly</li>
+                            <li>Plants healthy</li>
+                        </ul>
+                    </div>
+                    <div class="recommendation-card">
+                        <div class="recommendation-icon humid">&#x1F4A6;</div> <!-- Sweat/Water -->
+                        <h3>Too Humid (&gt; 80%)</h3>
+                        <ul>
+                            <li>Increase ventilation</li>
+                            <li>Reduce watering</li>
+                            <li>Check for mold</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>&copy; 2024 Smart Greenhouse Monitoring System</p>
+                    <p>Acropolis Institute of Technology and Research</p>
+                </div>
+                <div class="footer-team">
+                    <p><strong>Team:</strong> Adarsh Patel, Atharva Rathore, Gourav Mahajan, Kunal Sonare</p>
+                    <p><strong>Guide:</strong> Prof. Mahendra Verma</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Set sensor type for this page
+        window.SENSOR_TYPE = 'humidity';
+        window.SENSOR_FIELD = 'humidity';
+        window.SENSOR_UNIT = '%';
+        window.SENSOR_MIN = 0;
+        window.SENSOR_MAX = 100;
+        window.SENSOR_OPTIMAL_MIN = 40;
+        window.SENSOR_OPTIMAL_MAX = 80;
+    </script>
+    <script src="sensor-detail.js"></script>
+</body>
+
+</html>

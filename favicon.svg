@@ -1,0 +1,24 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Greenhouse structure -->
+  <rect x="16" y="28" width="32" height="28" fill="#1f2937" stroke="#10b981" stroke-width="2"/>
+  
+  <!-- Roof -->
+  <path d="M32 8L52 28H12L32 8Z" fill="#10b981" stroke="#34d399" stroke-width="2"/>
+  
+  <!-- Window panes -->
+  <line x1="32" y1="28" x2="32" y2="56" stroke="#3b82f6" stroke-width="1.5"/>
+  <line x1="16" y1="42" x2="48" y2="42" stroke="#3b82f6" stroke-width="1.5"/>
+  
+  <!-- Plant inside -->
+  <path d="M32 48C32 48 28 46 28 42C28 38 32 38 32 38C32 38 36 38 36 42C36 46 32 48 32 48Z" fill="#34d399"/>
+  <line x1="32" y1="38" x2="32" y2="56" stroke="#10b981" stroke-width="2"/>
+  
+  <!-- Leaves -->
+  <circle cx="28" cy="40" r="2" fill="#10b981"/>
+  <circle cx="36" cy="40" r="2" fill="#10b981"/>
+  
+  <!-- IoT indicator dot -->
+  <circle cx="54" cy="14" r="4" fill="#3b82f6">
+    <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+  </circle>
+</svg>

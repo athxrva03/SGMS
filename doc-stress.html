@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Environmental Stress Analysis Documentation">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <title>Docs: Stress Analysis | Smart Greenhouse</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        .doc-content {
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            margin-top: var(--spacing-xl);
+        }
+
+        .doc-content h2 {
+            color: var(--color-primary);
+            margin-top: var(--spacing-xl);
+            margin-bottom: var(--spacing-md);
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: var(--spacing-sm);
+        }
+
+        .doc-content h3 {
+            color: var(--color-text-primary);
+            margin-top: var(--spacing-lg);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .doc-content p,
+        .doc-content li {
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .doc-content ul {
+            padding-left: var(--spacing-xl);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .ascii-diagram {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            font-family: 'Courier New', Courier, monospace;
+            white-space: pre;
+            overflow-x: auto;
+            margin: var(--spacing-md) 0;
+            font-size: 0.9rem;
+            line-height: 1.2;
+        }
+
+        .formula-box {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 4px solid var(--color-primary);
+            padding: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+            font-family: 'Courier New', Courier, monospace;
+            color: var(--color-text-primary);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: var(--spacing-md) 0;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: var(--spacing-sm);
+            border-bottom: 1px solid var(--color-border);
+            color: var(--color-text-secondary);
+        }
+
+        th {
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background Animation -->
+    <div class="background-animation">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="blob blob-4"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo-section">
+                    <div class="logo-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 5L35 12.5V27.5L20 35L5 27.5V12.5L20 5Z" stroke="url(#gradient1)"
+                                stroke-width="2" fill="url(#gradient2)" />
+                            <circle cx="20" cy="20" r="5" fill="url(#gradient3)" />
+                            <defs>
+                                <linearGradient id="gradient1" x1="5" y1="5" x2="35" y2="35">
+                                    <stop offset="0%" stop-color="#10b981" />
+                                    <stop offset="100%" stop-color="#3b82f6" />
+                                </linearGradient>
+                                <linearGradient id="gradient2" x1="5" y1="5" x2="35" y2="35">
+                                    <stop offset="0%" stop-color="#10b98120" />
+                                    <stop offset="100%" stop-color="#3b82f620" />
+                                </linearGradient>
+                                <linearGradient id="gradient3" x1="15" y1="15" x2="25" y2="25">
+                                    <stop offset="0%" stop-color="#34d399" />
+                                    <stop offset="100%" stop-color="#60a5fa" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Smart Greenhouse</h1>
+                        <p>IoT Monitoring System</p>
+                    </div>
+                </div>
+                <div class="nav-links">
+                    <a href="home.html" class="nav-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z"
+                                stroke="currentColor" stroke-width="2" />
+                        </svg>
+                        Home
+                    </a>
+                    <a href="temperature.html" class="nav-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M12 17C13.6569 17 15 15.6569 15 14C15 12.3431 13.6569 11 12 11C10.3431 11 9 12.3431 9 14C9 15.6569 10.3431 17 12 17Z"
+                                stroke="currentColor" stroke-width="2" />
+                            <path d="M12 11V5M10 5H14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                        Temperature
+                    </a>
+                    <a href="humidity.html" class="nav-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M12 2.69L17.66 8.35C20.78 11.47 20.78 16.53 17.66 19.65C14.54 22.77 9.46 22.77 6.34 19.65C3.22 16.53 3.22 11.47 6.34 8.35L12 2.69Z"
+                                stroke="currentColor" stroke-width="2" />
+                        </svg>
+                        Humidity
+                    </a>
+                    <a href="soil.html" class="nav-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M12 2V10M12 22V14M12 10C10.9 10 10 10.9 10 12C10 14 12 14 12 14M12 10C13.1 10 14 10.9 14 12C14 14 12 14 12 14"
+                                stroke="currentColor" stroke-width="2" />
+                            <path d="M6 14H18M6 18H18M6 22H18" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                        Soil
+                    </a>
+
+                    <a href="prediction.html" class="nav-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        Predictions
+                    </a>
+
+                    <div class="nav-category">Analytics</div>
+                    <a href="water-analysis.html" class="nav-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                        Water Intake
+                    </a>
+                    <a href="stress-analysis.html" class="nav-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07L19.07 4.93" stroke="currentColor"
+                                stroke-width="2" />
+                        </svg>
+                        Env. Stress
+                    </a>
+
+                    <div class="nav-category">Documentation</div>
+                    <a href="doc-water.html" class="nav-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor"
+                                stroke-width="2" />
+                            <polyline points="14 2 14 8 20 8" stroke="currentColor" stroke-width="2" />
+                            <line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="2" />
+                            <line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="2" />
+                            <polyline points="10 9 9 9 8 9" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                        Water Analysis Doc
+                    </a>
+                    <a href="doc-stress.html" class="nav-link active">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor"
+                                stroke-width="2" />
+                            <polyline points="14 2 14 8 20 8" stroke="currentColor" stroke-width="2" />
+                            <line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="2" />
+                            <line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="2" />
+                            <polyline points="10 9 9 9 8 9" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                        Stress Analysis Doc
+                    </a>
+                </div>
+                <div class="status-indicator-nav">
+                    <div class="status-dot" id="connectionStatus"></div>
+                    <span id="statusText">Connecting...</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <section class="page-header">
+                <div class="page-header-content">
+                    <div>
+                        <h1 class="page-title">Environmental Stress & Comfort Analysis</h1>
+                        <p class="page-subtitle">Documentation & Technical Methodology</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="doc-content">
+                <h2>1. Concept</h2>
+                <p>Sensors (Temperature, Humidity, Light, Soil Moisture) provide raw data, but they don't directly
+                    measure plant health. This analysis module translates raw data into a <strong>"Quality of
+                        Life"</strong> metric for the plants.</p>
+                <ul>
+                    <li><strong>Comfort</strong>: The state when <em>all</em> environmental parameters are within their
+                        optimal ranges.</li>
+                    <li><strong>Stress</strong>: The state when <em>one or more</em> parameters deviate from the optimal
+                        range, potentially hindering growth or causing damage.</li>
+                </ul>
+
+                <h2>2. Key Metrics</h2>
+
+                <h3>A. Comfort Time</h3>
+                <p>The total duration (in hours/minutes) during a 24-hour period where the plant is in a "perfect"
+                    environment.</p>
+                <div class="formula-box">
+                    Comfort Time = Σ Time where (T_min ≤ T ≤ T_max) ∧ (H_min ≤ H ≤ H_max) ∧ ...
+                </div>
+
+                <h3>B. Stress Time</h3>
+                <p>The duration where the plant is fighting against adverse conditions.</p>
+                <div class="formula-box">
+                    Stress Time = Total Time - Comfort Time
+                </div>
+
+                <h2>3. Analysis Methods</h2>
+                <p>The system evaluates stress using three dimensions:</p>
+                <ol>
+                    <li><strong>Frequency & Duration</strong>: How often does stress occur, and for how long? (e.g., "2
+                        hours of heat stress every afternoon").</li>
+                    <li><strong>Rate of Change</strong>: How quickly do conditions deteriorate? Rapid changes (thermal
+                        shock) are more damaging than gradual ones.</li>
+                    <li><strong>Actuator Response</strong>: Did the fan/pump/light turn on? Did it successfully mitigate
+                        the stress?</li>
+                </ol>
+
+                <h2>4. Analysis Outputs</h2>
+
+                <h3>A. Comfort vs. Stress Timeline (Diagram)</h3>
+                <p>This ASCII diagram visualizes a 24-hour day, distinguishing between comfortable periods and specific
+                    stress events.</p>
+                <div class="ascii-diagram">
+                    Status
+                    ^
+                    | [COMFORT] [HEAT STRESS] [COMFORT] [DRY SOIL]
+                    | (Ideal) (Temp > 35C) (Ideal) (Moisture < 30%) |
+                        |++++++++++++++-------------------------++++++++++++++++++++---------------- |
+                        +--------------------------------------------------------------------------> Time
+                        08:00 12:00 15:00 18:00
+                </div>
+
+                <h3>B. Stress Summary Table</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Ideal Range</th>
+                            <th>Current Status</th>
+                            <th>Stress Duration (Last 24h)</th>
+                            <th>Actuator Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Temperature</strong></td>
+                            <td>15°C - 35°C</td>
+                            <td>38°C (High)</td>
+                            <td>3 hrs 15 min</td>
+                            <td>Fan: <strong>ON</strong> (Cooling)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Humidity</strong></td>
+                            <td>40% - 80%</td>
+                            <td>45% (OK)</td>
+                            <td>0 min</td>
+                            <td>Misting: OFF</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Soil Moisture</strong></td>
+                            <td>30% - 70%</td>
+                            <td>28% (Low)</td>
+                            <td>45 min</td>
+                            <td>Pump: <strong>ON</strong> (Watering)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Light</strong></td>
+                            <td>20% - 100%</td>
+                            <td>10% (Low)</td>
+                            <td>1 hr 20 min</td>
+                            <td>Grow Light: <strong>ON</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>C. Predictive Improvements</h3>
+                <ul>
+                    <li><strong>Pre-emptive Cooling</strong>: Turn on fans <em>before</em> temperature hits the critical
+                        limit based on the rate of rise.</li>
+                    <li><strong>Smart Watering</strong>: Delay watering if humidity is very high (to prevent mold) or if
+                        rain is predicted (if connected to weather API).</li>
+                    <li><strong>Stress Accumulation</strong>: Calculate a "Daily Stress Index" score (0-100) to track
+                        long-term plant health trends.</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    <script>
+        // Simple connection check for documentation pages
+        document.addEventListener('DOMContentLoaded', () => {
+            const statusDot = document.getElementById('connectionStatus');
+            const statusText = document.getElementById('statusText');
+
+            if (statusDot && statusText) {
+                statusText.textContent = 'Connecting...';
+
+                // Check API availability
+                fetch('/api/data?limit=1')
+                    .then(response => {
+                        if (response.ok) {
+                            statusDot.classList.add('connected');
+                            statusText.textContent = 'Connected';
+                        } else {
+                            statusDot.classList.add('error');
+                            statusText.textContent = 'Error';
+                        }
+                    })
+                    .catch(() => {
+                        statusDot.classList.add('error');
+                        statusText.textContent = 'Error';
+                    });
+            }
+        });
+    </script>
+</body>
+
+</html>
