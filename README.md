@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Smart Greenhouse Monitoring System 🌱
 
 A modern, IoT-based web dashboard for real-time monitoring of greenhouse environmental conditions using ESP8266, Node.js, MySQL, and beautiful data visualization.
@@ -86,3 +87,6 @@ Department of Information Technology
 ## 📄 License
 
 This project is created for educational purposes as part of the IT department curriculum.
+=======
+# SGMS
+>>>>>>> 51d2a638e0f3684a21a95fc76e93737f02151233
