@@ -1,8 +1,5 @@
-node_modules/
-.env
-.DS_Store
-
 target/
+.env
 *.log
 .idea/
 .vscode/
