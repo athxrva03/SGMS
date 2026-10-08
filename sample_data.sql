@@ -1,7 +1,7 @@
 -- Sample Data for Smart Greenhouse Monitoring System
 -- This will insert realistic sensor readings for testing
 
-USE stockvision;
+USE sgms;
 
 -- Insert sample readings with timestamps over the past few hours
 INSERT INTO sensor_readings (temperature, humidity, soil_moisture, light_intensity, created_at) VALUES
